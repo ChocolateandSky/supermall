@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="home" class="wrapper">
       <nav-bar  class="home-nav">
         <div slot="center">购物街</div>
       </nav-bar>
@@ -7,59 +7,18 @@
       <recommend-view :recommends="recommends"/>
       <feature-view/>
       <tab-control :titles="['流行','新款','推荐']"></tab-control>
+      <goods-list :goodslist="goods['pop'].list" />
       <ul>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
-        <li>列表</li>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+        <li>li6</li>
+        <li>li7</li>
+        <li>li8</li>
+        <li>li9</li>
+        <li>li10</li>
       </ul>
   </div>
 </template>
@@ -72,6 +31,8 @@ import FeatureView from './childComps/FeatureView'
 import NavBar from 'components/common/navbar/NavBar'
 import TabControl from "components/content/tabControl/TabControl"
 
+import GoodsList from 'components/content/goods/GoodsList'
+
 import { getHomeMultidata, getHomeGoods } from 'network/home.js'
 
 
@@ -82,7 +43,8 @@ export default {
     HomeSwiper,
     RecommendView,
     FeatureView,
-    TabControl
+    TabControl,
+    GoodsList
   },
   data(){
     return{
@@ -131,15 +93,23 @@ export default {
 <style scoped>
 #home{
   padding-top: 44px;
+  position: relative;
 }
 .home-nav {
-  background-color: var(--color-tint);
-  color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9;
+    background-color: var(--color-tint);
+    color: #fff;
 
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
 }
+ .tab-control {
+    position: sticky;
+    top: 44px;
+    z-index: 10;
+  }
+
+
 </style>
